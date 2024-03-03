@@ -1,5 +1,11 @@
 const myLibrary = [];
 
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const pagesInput = document.getElementById("pages");
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -12,11 +18,19 @@ function Book(title, author, pages, read) {
     };
 }
 
-// to test the book constructor
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
-theHobbit.info();
-
 function addBookToLibrary() {
-    // take user input
-    // store new book objects into an array
+    let newBookObj = {};
+
+    newBookObj.title = titleInput.value;
+    newBookObj.author = authorInput.value;
+    newBookObj.pages = pagesInput.value;
+    
+    if (yes.checked) {
+        newBookObj.read = yes.value;
+    } else {
+        newBookObj.read = no.value;
+    }
+
+    myLibrary.push(newBookObj);
+    console.log(myLibrary);
 }
