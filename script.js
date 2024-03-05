@@ -3,34 +3,47 @@ const myLibrary = [];
 const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
 const pagesInput = document.getElementById("pages");
-const yes = document.getElementById("yes");
-const no = document.getElementById("no");
+const read = document.getElementById("read");
+const container = document.querySelector(".container");
 
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function() {
-        let information = `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-        console.log(information);
-        return information;
-    };
 }
 
 function addBookToLibrary() {
-    let newBookObj = {};
+    let newBookObj = new Book();
 
     newBookObj.title = titleInput.value;
     newBookObj.author = authorInput.value;
     newBookObj.pages = pagesInput.value;
-    
-    if (yes.checked) {
-        newBookObj.read = yes.value;
-    } else {
-        newBookObj.read = no.value;
-    }
+    newBookObj.read = read.value;
 
     myLibrary.push(newBookObj);
-    console.log(myLibrary);
+    displayBooks(myLibrary);
+}
+
+function displayBooks() {
+    container.innerHTML = "";
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        const card = document.createElement("div");
+        const title = document.createElement("p");
+        const author = document.createElement("p");
+        const pages = document.createElement("p");
+        const read = document.createElement("p");
+
+        title.textContent = "Title: " + myLibrary[i].title;
+        author.textContent = "Author: " + myLibrary[i].author;
+        pages.textContent = "Pages: " + myLibrary[i].pages;
+        read.textContent = "Status: " + myLibrary[i].read;
+
+        card.appendChild(title);
+        card.appendChild(author);
+        card.appendChild(pages);
+        card.appendChild(read);
+        container.appendChild(card);
+    }
 }
