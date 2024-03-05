@@ -1,12 +1,13 @@
 :root {
-    --background: #4A4A48;
-    --elevated: #A4C2A5;
-    --font: #F1F2EB;
-    --accent: #566246;
+    --background: #121212;
+    --elevated: #3f3f3f;
+    --card: #282828;
+    --font: #ffffff;
+    --accent: #8fcc85;
 
     background-color: var(--background);
     color: var(--font);
-    font-family: 'Roboto', sans-serif;
+    font-family: "Plus Jakarta Sans", -apple-system, "Segoe UI", sans-serif;
 }
 
 * {
@@ -20,23 +21,26 @@ body {
 
 h1 {
     margin-top: 0;
-    letter-spacing: 0.2rem;
     text-align: center;
     font-size: 2.5rem;
-    color: var(--elevated);
+    color: var(--accent);
+}
+
+form, .card {
+    padding: 1.5rem;
+    display: flex;
+    font-size: 1rem;
+    border-radius: 10px;
 }
 
 form {
-    background-color: var(--elevated);
-    padding: 1.5rem;
-    display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    border-radius: 5px;
-    color: var(--background);
+    background-color: var(--elevated);
+    color: var(--font);
+    margin-bottom: 2rem;
 }
 
 .form-container {
@@ -47,19 +51,21 @@ form {
 
 input {
     width: 10rem;
-    height: 1.7rem;
+    height: 2rem;
     padding: 0 0.5em;
+    font-size: 0.9rem;
     outline-style: none;
     border-style: none;
     border-radius: 5px;
     color: var(--background);
+    font-family: 'Plus Jakarta Sans', -apple-system, "Segoe UI", sans-serif;
 }
 
 select {
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    background-color: #fafafa;
+    appearance: none !important;
+    background-color: var(--font);
     width: 10rem;
+    height: 2rem;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC);
     background-position: 100%;
     background-repeat: no-repeat;
@@ -73,16 +79,47 @@ select {
 }
 
 button {
-    width: 9rem;
+    width: 8rem;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 700;
     padding: 0.4rem;
-    color: var(--font);
+    color: var(--background);
     background-color: var(--accent);
-    border-radius: 5px;
+    border-radius: 10px;
     border-style: none;
 }
 
 button:hover, select:hover {
     cursor: pointer;
+}
+
+.container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    flex-direction: column;
+    background-color: var(--card);
+    color: var(--font);
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p {
+    margin: 0.5rem;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.author {
+    font-size: 0.9rem;
+    font-weight: 300;
 }
