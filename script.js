@@ -12,6 +12,11 @@ function Book(title, author, read) {
 }
 
 function addBookToLibrary() {
+    // prevents user from submitting empty entries
+    if (titleInput.value == "" || authorInput == "" || read.value == "") {
+        return false;
+    }
+
     let newBookObj = new Book();
 
     newBookObj.title = titleInput.value;
