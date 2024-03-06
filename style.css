@@ -126,7 +126,7 @@ p {
 
 .removeBtn {
     background-color: var(--lighter);
-    background-image: url("../icons/delete.svg");
+    background-image: url("./icons/delete.svg");
     background-repeat: no-repeat;
     width: 2rem;
     height: 2rem;
