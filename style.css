@@ -5,6 +5,7 @@
     --card: #282828;
     --font: #ffffff;
     --accent: #8fcc85;
+    --remove: #cc8585;
 
     background-color: var(--background);
     color: var(--font);
@@ -125,7 +126,7 @@ p {
 }
 
 .removeBtn {
-    background-color: var(--lighter);
+    background-color: var(--remove);
 }
 
 .statusBtn {
