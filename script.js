@@ -12,7 +12,7 @@ function Book(title, author, read) {
 }
 
 function addBookToLibrary() {
-    // prevents user from submitting empty entries
+    // prevents user from submitting empty forms
     if (titleInput.value == "" || authorInput == "" || read.value == "") {
         return false;
     }
@@ -35,11 +35,13 @@ function displayBooks() {
         const title = document.createElement("p");
         const author = document.createElement("p");
         const read = document.createElement("p");
-
+        const removeBtn = document.createElement("button");
+        
         card.className = "card";
         title.className = "title";
         author.className = "author";
         read.className = "read";
+        removeBtn.className = "removeBtn";
 
         title.textContent = myLibrary[i].title;
         author.textContent = "by  " + myLibrary[i].author;
@@ -51,9 +53,24 @@ function displayBooks() {
             read.style.color = "#cc8585";
         }
 
+        // pass the index of the book to be removed into removeBook()
+        removeBtn.addEventListener("click", function() {
+            container.removeChild(card);
+            removeBook(i);
+        });
+
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(read);
+        card.appendChild(removeBtn);
         container.appendChild(card);
     }
+}
+
+// index specifies the index of the book to be removed
+function removeBook(index) {
+    // removes book from array (index at which to start modifying the array, number of elements to remove)
+    myLibrary.splice(index, 1);
+    // update the displayed books after removing the book
+    displayBooks();
 }
