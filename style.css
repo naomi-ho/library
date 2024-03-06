@@ -124,10 +124,6 @@ p {
     font-weight: 300;
 }
 
-/* .read {
-    margin-bottom: 4rem;
-} */
-
 .removeBtn {
     background-color: var(--lighter);
     background-image: url("./icons/delete.svg");
