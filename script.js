@@ -35,22 +35,26 @@ function displayBooks() {
         const title = document.createElement("p");
         const author = document.createElement("p");
         const read = document.createElement("p");
+        const btns = document.createElement("div");
         const removeBtn = document.createElement("button");
+        const statusBtn = document.createElement("button");
         
         card.className = "card";
         title.className = "title";
         author.className = "author";
         read.className = "read";
+        btns.className = "btns";
         removeBtn.className = "removeBtn";
+        statusBtn.className = "statusBtn";
 
         title.textContent = myLibrary[i].title;
         author.textContent = "by  " + myLibrary[i].author;
-        read.textContent = myLibrary[i].read;
+        statusBtn.textContent = myLibrary[i].read;
 
-        if (read.textContent === "Completed") {
-            read.style.color = "#8fcc85";
+        if (statusBtn.textContent === "Complete") {
+            statusBtn.style.backgroundColor = "#8fcc85";
         } else {
-            read.style.color = "#cc8585";
+            statusBtn.style.backgroundColor = "#cc8585";
         }
 
         // pass the index of the book to be removed into removeBook()
@@ -59,10 +63,16 @@ function displayBooks() {
             removeBook(i);
         });
 
+        statusBtn.addEventListener("click", function() {
+            changeStatus(i);
+        });
+
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(read);
-        card.appendChild(removeBtn);
+        btns.appendChild(statusBtn);
+        btns.appendChild(removeBtn);
+        card.appendChild(btns);
         container.appendChild(card);
     }
 }
@@ -72,5 +82,15 @@ function removeBook(index) {
     // removes book from array (index at which to start modifying the array, number of elements to remove)
     myLibrary.splice(index, 1);
     // update the displayed books after removing the book
+    displayBooks();
+}
+
+// toggles between book completion status
+function changeStatus(index) {
+    if (myLibrary[index].read === "Complete") {
+        myLibrary[index].read = "Incomplete";
+    } else {
+        myLibrary[index].read = "Complete";
+    }
     displayBooks();
 }
