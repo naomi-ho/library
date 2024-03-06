@@ -4,6 +4,7 @@
     --card: #282828;
     --font: #ffffff;
     --accent: #8fcc85;
+    --remove: #cc8585;
 
     background-color: var(--background);
     color: var(--font);
@@ -121,4 +122,18 @@ p {
 .author {
     font-size: 0.8rem;
     font-weight: 300;
+}
+
+.read {
+    margin-bottom: 4rem;
+}
+
+.removeBtn {
+    background-color: var(--remove);
+    background-image: url("/icons/delete.svg");
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    background-position: center;
 }
