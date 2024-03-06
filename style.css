@@ -1,10 +1,10 @@
 :root {
     --background: #121212;
     --elevated: #3f3f3f;
+    --lighter: #8d8d8d;
     --card: #282828;
     --font: #ffffff;
     --accent: #8fcc85;
-    --remove: #cc8585;
 
     background-color: var(--background);
     color: var(--font);
@@ -72,7 +72,6 @@ select {
     background-repeat: no-repeat;
     border-style: none;
     border-radius: 5px;
-    outline-style: none;
     padding: 0.5rem;
     border-radius: 5px;
     color: var(--background);
@@ -106,8 +105,9 @@ button:hover, select:hover {
     background-color: var(--card);
     color: var(--font);
     width: 300px;
-    height: 250px;
+    height: 200px;
     overflow-wrap: break-word;
+    justify-content: space-between;
 }
 
 p {
@@ -124,16 +124,25 @@ p {
     font-weight: 300;
 }
 
-.read {
+/* .read {
     margin-bottom: 4rem;
-}
+} */
 
 .removeBtn {
-    background-color: var(--remove);
+    background-color: var(--lighter);
     background-image: url("/icons/delete.svg");
     background-repeat: no-repeat;
     width: 2rem;
     height: 2rem;
     display: flex;
     background-position: center;
+}
+
+.statusBtn {
+    color: var(--card);
+}
+
+.btns {
+    display: flex;
+    gap: 1rem;
 }
