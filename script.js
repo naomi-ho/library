@@ -19,7 +19,7 @@ class Library {
 
   addBookToLibrary() {
     // prevents user from submitting empty forms
-    if (titleInput.value == '' || authorInput == '' || read.value == '') {
+    if (titleInput.value == '' || authorInput.value == '' || read.value == '') {
       return false;
     }
 
@@ -53,6 +53,7 @@ class Library {
 
   displayBooks() {
     container.innerHTML = '';
+    const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < this.books.length; i++) {
       const card = document.createElement('div');
@@ -99,15 +100,22 @@ class Library {
       btns.appendChild(statusBtn);
       btns.appendChild(removeBtn);
       card.appendChild(btns);
-      container.appendChild(card);
+
+      // use document fragmentation to optimise DOM manipulation performance by reducing number of reflows and repaints
+      // instead of directly appending elements to DOM one by one, append the card to the DocumentFragment instead of container
+      fragment.appendChild(card);
     }
+
+    // append DocumentFragment to container
+    container.appendChild(fragment);
   }
 }
 
 // creates an instance of the Library class
 const myLibrary = new Library();
 
-// attach a submit event listener to the entire form so that it ensures all form submissions, regardless of how it's triggered (e.g. by pressing Enter or clicking submit), is intercepted
+// attach a submit event listener to the entire form so that it ensures that all form submissions,
+// regardless of how it's triggered (e.g. by pressing Enter or clicking submit), is intercepted
 form.addEventListener('submit', (e) => {
   // prevent default form submission behaviour
   e.preventDefault();
