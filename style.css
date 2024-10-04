@@ -126,12 +126,6 @@ p {
 
 .removeBtn {
     background-color: var(--lighter);
-    background-image: url("/icons/trash-can-outline.svg");
-    background-repeat: no-repeat;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    background-position: center;
 }
 
 .statusBtn {
