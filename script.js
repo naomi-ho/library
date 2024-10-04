@@ -50,7 +50,7 @@ function displayBooks() {
         title.textContent = myLibrary[i].title;
         author.textContent = "by  " + myLibrary[i].author;
         statusBtn.textContent = myLibrary[i].read;
-        removeBtn.textContent = "Delete"
+        removeBtn.textContent = "Delete";
 
         if (statusBtn.textContent === "Complete") {
             statusBtn.style.backgroundColor = "#8fcc85";
