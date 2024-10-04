@@ -15,21 +15,22 @@
         <form id="form" onsubmit="event.preventDefault()">
             <div class="form-container">
                 <label for="title">Title:</label>
-                <input type="text" name="title" id="title">    
+                <input type="text" name="title" id="title" required>    
             </div>
             <div class="form-container">
                 <label for="author">Author:</label>
-                <input type="text" name="author" id="author">    
+                <input type="text" name="author" id="author" required>    
             </div>
             <div class="form-container">
                 <label for="read">Completed?</label>
-                <select name="read" id="read">
+                <select name="read" id="read" required>
+                    <option hidden disabled selected value>Choose an option</option>
                     <option value="Completed">Yes</option>
                     <option value="Not completed">No</option>
                 </select>
             </div>
             <button type="submit" onclick="addBookToLibrary()">Add Book</button>
-        </form>    
+        </form>
     <div class="container"></div>
 </body>
 </html>
