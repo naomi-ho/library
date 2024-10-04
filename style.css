@@ -126,7 +126,7 @@ p {
 
 .removeBtn {
     background-color: var(--lighter);
-    background-image: url("https://github.com/naomi-ho/library/blob/7d3e1936b8e70b3eef50b695fb27c29cb0a3308b/icons/delete.svg");
+    background-image: url("/icons/trash-can-outline.svg");
     background-repeat: no-repeat;
     width: 2rem;
     height: 2rem;
